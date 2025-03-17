@@ -5,84 +5,82 @@ The aim of this experiment is to create a Markov Decision Process (MDP) represen
 ## PROBLEM STATEMENT:
 
 ### Problem Description
-Design an RL agent to optimize the movement of a warehouse robot to efficiently pick up and deliver items while avoiding obstacles, minimizing time, and conserving energy.
+Design an RL agent in a Kabaddi game, a raider tries to score points by touching opponents and returning safely. Defenders aim to stop the raider by tackling them. The problem is to create a model where both teams make the best decisions to score or prevent scoring.
 
 ### State Space
-![image](https://github.com/user-attachments/assets/fd1ff3f6-5c1b-41b1-bda1-d068e0f75520)
+7,tackle,raid
 
 
 
 ### Sample State
-![image](https://github.com/user-attachments/assets/6285bd9d-68e3-431b-930a-6c6863d73f86)
 
-
+Raid
 
 ### Action Space
-![image](https://github.com/user-attachments/assets/4d21bd0b-612f-49a9-84b2-9e176e42bdaa)
+Raiding,Tackling
 
 
 
 ### Sample Action
+Raid,Defend
 
-![image](https://github.com/user-attachments/assets/ac4002b3-b2b2-45c4-8d10-07bc7540c766)
 
 ### Reward Function
-![image](https://github.com/user-attachments/assets/fb02cffa-8b4e-484e-bc54-f1587b4fb392)
+score
 
 
 
 ### Graphical Representation
-![image](https://github.com/user-attachments/assets/bb66f936-2ea3-4df6-b6d4-42abaf940312)
+![WhatsApp Image 2025-03-17 at 18 57 46_3e413bf5](https://github.com/user-attachments/assets/f078e1ec-4a1c-4114-9e5e-fe2ea0da2547)
+
 
 
 
 ## PYTHON REPRESENTATION:
 
-mdp={
+Kabaddi = {
+    # State 0: Idle
+    0: {
+        1: [(0.85, 1, 0, False), (0.15, 2, 0, False)],  
+        2: [(0.80, 2, 0, False), (0.20, 0, 0, False)]   #
+    },
     
-    1:
-     {
-    0:[(1,0,0,False)],
-    1:[(1,0,0,False)],
-    2:[(0.7,3,-5,False),(0.3,2,1,True)],
-    3:[(0.3,2,1,True),(0.7,3,-5,False)],
-    4:[(1,0,0,False)]},
+    # State 1: Raiding
+    1: {
+        1: [(0.90, 3, 1, True), (0.10, 4, 0, False)],    
+        2: [(0.70, 2, 0, False), (0.30, 0, 0, False)]   
+    },
 
-    2:
-     {
-       0:[(1,2,0,True)],
-       1:[(1,2,0,True)],
-       2:[(1,2,0,True)],
-       3:[(1,2,0,True)],
-       4:[(1,2,0,True)]}, 
-    
-    3:
-     {
-       0:[(1,3,0,False)],
-       1:[(1,3,0,False)],
-       2:[(1,3,0,False)],
-       3:[(0.95,4,10,True),(0.05,1,0,False)],
-       4:[(0.05,1,0,False),(0.95,4,10,True)]}, 
-    
-    4:
-     {
-       0:[(1,4,0,True)],
-       1:[(1,4,0,True)],
-       2:[(1,4,0,True)],
-       3:[(1,4,0,True)],
-       4:[(1,4,0,True)]} 
-    
-     
+    # State 2: Defending
+    2: {
+        1: [(0.60, 1, 0, False), (0.40, 0, 0, False)],
+        2: [(0.75, 3, 0, False), (0.25, 4, 0, False)]    #
+    },
+
+    # State 3: Scored
+    3: {
+        1: [(0.95, 1, 0, False), (0.05, 0, 0, False)],  
+        2: [(0.80, 0, 0, False), (0.20, 1, 0, False)]    
+    },
+
+    # State 4: Out
+    4: {
+        1: [(0.90, 0, 0, False), (0.10, 4, 0, False)],   
+        2: [(0.85, 0, 0, False), (0.15, 4, 0, False)]    
+    }
 }
+
+Kabaddi
 
 
 ## OUTPUT:
-![image](https://github.com/user-attachments/assets/c8a98b4c-db4c-46fc-bf1a-387181baebd3)
+![image](https://github.com/user-attachments/assets/b067f5d6-5b65-4ee4-9d11-b9d84ec4982e)
+
 
 
 
 
 
 ## RESULT:
-Thus, The MDP Represntation of reaching a college from home without any traffic is successfully executed.
+Thus, The MDP Represntation of optimized strategy for both raiders and defenders, maximizing points for raiders and preventing tackles.
 
