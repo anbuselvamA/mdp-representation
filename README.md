@@ -31,7 +31,8 @@ score
 
 
 ### Graphical Representation
-![WhatsApp Image 2025-03-17 at 18 57 46_3e413bf5](https://github.com/user-attachments/assets/f078e1ec-4a1c-4114-9e5e-fe2ea0da2547)
+![rl](https://github.com/user-attachments/assets/f7d1e765-a7b0-439b-be9b-69898a01b0d8)
+
 
 
 
